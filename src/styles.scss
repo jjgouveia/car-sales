@@ -7,6 +7,14 @@
 $background-color: #252525;
 $font-color: #fff !important;
 
+body {
+  background-image: url("./assets/background-car.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  opacity: 0.95;
+}
+
 .p-card {
   background-color: $background-color;
   color: $font-color;
