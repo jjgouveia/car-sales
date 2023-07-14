@@ -26,7 +26,7 @@ import { LoginComponent } from './views/login/login.component';
     ButtonModule,
     FontAwesomeModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faCar } from '@fortawesome/free-solid-svg-icons';
 import { RequestLogin } from 'src/app/resources/models/RequestLogin';
+import { AlertService } from 'src/app/resources/services/alert.service';
 import { LoginService } from 'src/app/resources/services/login.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit { // A classe LoginComponent imple
 
   public requestLogin!: RequestLogin;
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private alertService: AlertService) { };
 
   // ngOnInit é o primeiro método invocado assim que o componente for construído;
 
@@ -24,8 +25,10 @@ export class LoginComponent implements OnInit { // A classe LoginComponent imple
   // doLogin é um método público que não retorna nada (void) e não recebe parâmetros (void);
   // Ele é invocado quando o usuário clicar no botão de login;
   public doLogin(): void {
-    this.loginService.doLogin(this.requestLogin).subscribe((data) => console.log(data), (error) => console.error(error));
-
+    this.loginService.doLogin(this.requestLogin).subscribe((data) => {
+      this.alertService.success("Login realizado com sucesso!");
+    }, (error) => {
+      this.alertService.error(error.error.message, "Ops! Algo deu errado!");
+    });
   }
-
 }

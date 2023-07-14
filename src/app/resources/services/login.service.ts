@@ -13,6 +13,8 @@ export class LoginService {
 
   constructor(private httpClient: HttpClient) { }
 
+
+
   // doLogin é um método público que retorna um Observable de ResponseLogin e recebe um RequestLogin como parâmetro;
   // Ele é invocado quando o usuário clicar no botão de login;
   public doLogin(requestLogin: RequestLogin): Observable<ResponseLogin> {
