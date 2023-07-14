@@ -3,6 +3,8 @@
         <p-card>
             <div class="grid">
                 <div class="col-12 text-center">
+                    <!-- Icone do font awesome
+                    Para fazer o icon funcionar, é necessário importar o FontAwesomeModule no app.module.ts -->
                     <fa-icon size="4x" [icon]="faCar" style="color: rgb(101, 101, 251);"></fa-icon>
                     <h2>
                         Car Sales
@@ -10,14 +12,17 @@
                 </div>
                 <div class="col-12">
                     <label for="username">Usuário:</label>
-                    <input id="username" type="text" pInputText class="col-12" />
+
+                    <input [(ngModel)]="requestLogin.login" id="username" type="text" pInputText class="col-12" />
                 </div>
                 <div class="col-12">
                     <label for="username">Senha:</label>
-                    <input class="col-12" id="password" type="text" pInputText>
+                    <!-- Two way data binding -->
+                    <!-- Para fazer o two way data binding, é necessário importar o FormsModule no app.module.ts -->
+                    <input [(ngModel)]="requestLogin.password" class="col-12" id="password" type="password" pInputText>
                 </div>
                 <div class="col-12">
-                    <button class="col-12" pButton type="button" label="Entrar"></button>
+                    <button (click)="doLogin()" class="col-12" pButton type="button" label="Entrar"></button>
                 </div>
             </div>
         </p-card>
