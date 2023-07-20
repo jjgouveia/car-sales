@@ -7,7 +7,7 @@ import { ResponseLogin } from "../models/ResponseLogin";
 export class AuthService {
 
 
-  public loginResponse: ResponseLogin | undefined;
+  public loginResponse: ResponseLogin | undefined | null;
 
   
   public clear(): void {

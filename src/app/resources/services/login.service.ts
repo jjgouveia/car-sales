@@ -25,6 +25,6 @@ export class LoginService {
     return this.httpClient.post<ResponseLogin>(
       "http://localhost:8080/api/login",
       requestLogin).pipe(
-        tap((jwt)=> this.authService.loginResponse = jwt));
+        tap((loginResponse)=> this.authService.loginResponse = loginResponse));
   }
 }
