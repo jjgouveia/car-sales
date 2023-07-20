@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { faCar } from '@fortawesome/free-solid-svg-icons';
 import { RequestLogin } from 'src/app/resources/models/RequestLogin';
 import { AlertService } from 'src/app/resources/services/alert.service';
@@ -14,7 +15,11 @@ export class LoginComponent implements OnInit { // A classe LoginComponent imple
 
   public requestLogin!: RequestLogin;
 
-  constructor(private loginService: LoginService, private alertService: AlertService) { };
+  constructor(
+    private loginService: LoginService,
+    private alertService: AlertService,
+    private router: Router
+  ) { };
 
   // ngOnInit é o primeiro método invocado assim que o componente for construído;
 
@@ -26,7 +31,7 @@ export class LoginComponent implements OnInit { // A classe LoginComponent imple
   // Ele é invocado quando o usuário clicar no botão de login;
   public doLogin(): void {
     this.loginService.doLogin(this.requestLogin).subscribe((data) => {
-      this.alertService.success("Login realizado com sucesso!");
+      this.router.navigate(["dashboard"]);
     }, (error) => {
       this.alertService.error(error.error.message, "Ops! Algo deu errado!");
     });
